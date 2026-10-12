@@ -1,21 +1,24 @@
-# HIGH PRES & MACH — Centrum Obróbki Wodą
+# JET CUTTING Adam Kołaszczyński — Centrum Obróbki Wodą. Poprzednio High Pres & Mach.
 
 Nowoczesne centrum obróbki wodą w Niedomicach k. Tarnowa. Oferujemy precyzyjne cięcie wodą 2D i 3D metali, kamienia, szkła, tworzyw sztucznych i drewna. Stół roboczy 4,2×2 m, grubość do 200 mm, tolerancja 0,1 mm.
 
 ## Strony
 
-- Strona główna: https://michalgazda.github.io/high-pres.pl/
-- Usługi: https://michalgazda.github.io/high-pres.pl/uslugi/
-- Technologia: https://michalgazda.github.io/high-pres.pl/technologia/
-- Wyceny: https://michalgazda.github.io/high-pres.pl/wyceny/
-- Rozety: https://michalgazda.github.io/high-pres.pl/rozety/
-- Realizacje 2D: https://michalgazda.github.io/high-pres.pl/realizacje-2d/
-- Realizacje 3D: https://michalgazda.github.io/high-pres.pl/realizacje-3d/
-- Kontakt: https://michalgazda.github.io/high-pres.pl/kontakt/
+- Strona główna: https://high-pres.pl/
+- Usługi: https://high-pres.pl/uslugi/
+- Technologia: https://high-pres.pl/technologia/
+- Wyceny: https://high-pres.pl/wyceny/
+- Rozety: https://high-pres.pl/rozety/
+- Realizacje 2D: https://high-pres.pl/realizacje-2d/
+- Realizacje 3D: https://high-pres.pl/realizacje-3d/
+- Kontakt: https://high-pres.pl/kontakt/
+- Polityka prywatności: https://high-pres.pl/polityka-prywatnosci/
 
 ## Podstawowe informacje
 
-- Firma: CENTRUM OBRÓBKI WODĄ HIGH PRES
+- Firma: JET CUTTING ADAM KOŁASZCZYŃSKI (poprzednio CENTRUM OBRÓBKI WODĄ HIGH PRES / High Pres & Mach)
+- NIP: 8731133493
+- REGON: 320038584
 - Adres: ul. Kolejowa 10, 33-132 Niedomice, woj. małopolskie
 - Telefon: 575 794 482, 14 657 50 50
 - E-mail: biuro@high-pres.pl

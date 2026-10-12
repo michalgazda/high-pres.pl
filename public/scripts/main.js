@@ -7,10 +7,24 @@
   var navLinks = document.querySelector('.nav-links');
   if (toggle && navLinks) {
     toggle.addEventListener('click', function () {
-      navLinks.classList.toggle('open');
+      var open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu');
     });
     navLinks.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') navLinks.classList.remove('open');
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Otwórz menu');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Otwórz menu');
+        toggle.focus();
+      }
     });
   }
 
@@ -48,27 +62,35 @@
     if (!allLinks.length) return;
 
     var current = 0;
+    var lastTrigger = null;
 
     function show(i) {
       current = (i + allLinks.length) % allLinks.length;
       lbImg.src = allLinks[current].href;
+      lbImg.alt = allLinks[current].el.querySelector('img')?.getAttribute('alt') || 'Podgląd realizacji';
     }
 
     allLinks.forEach(function (item, i) {
       item.el.addEventListener('click', function (e) {
         e.preventDefault();
         current = i;
+        lastTrigger = item.el;
         show(current);
         lb.classList.add('open');
+        lb.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        document.getElementById('lb-close')?.focus();
       });
     });
 
+    const closeLightbox = function () {
+          lb.classList.remove('open');
+          lb.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+          lastTrigger?.focus();
+    };
     lb.addEventListener('click', function (e) {
-      if (e.target === lb || e.target.classList.contains('lb-close')) {
-        lb.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+      if (e.target === lb || e.target.classList.contains('lb-close')) closeLightbox();
     });
 
     var prev = document.getElementById('lb-prev');
@@ -78,7 +100,7 @@
 
     document.addEventListener('keydown', function (e) {
       if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape') { lb.classList.remove('open'); document.body.style.overflow = ''; }
+      if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') show(current - 1);
       if (e.key === 'ArrowRight') show(current + 1);
     });

@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://michalgazda.github.io',
+  site: 'https://high-pres.pl',
   base: '/high-pres.pl/',
   output: 'static',
   outDir: './dist',

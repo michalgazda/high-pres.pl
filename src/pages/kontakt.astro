@@ -3,8 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const base = import.meta.env.BASE_URL;
 const contact = {
-  company: 'CENTRUM OBRÓBKI WODĄ HIGH PRES',
+  company: 'JET CUTTING ADAM KOŁASZCZYŃSKI',
   street: 'ul. Kolejowa 10, 33-132 Niedomice, woj. małopolskie',
+  nip: '8731133493',
+  regon: '320038584',
   phone1: '575 794 482',
   phone2: '14 657 50 50',
   phone1Href: '+48575794482',
@@ -16,9 +18,9 @@ const contact = {
 ---
 
 <BaseLayout
-  title="Kontakt — HIGH PRES & MACH | Dane teleadresowe"
-  description="Centrum Obróbki Wodą HIGH PRES, ul. Kolejowa 10, 33-132 Niedomice. Tel. 575 794 482. Formularz kontaktowy i dane teleadresowe. Godziny otwarcia: pon–pt 7:30–16:30."
-  canonical="https://michalgazda.github.io/high-pres.pl/kontakt/"
+  title="Kontakt — JET CUTTING Adam Kołaszczyński | Dane teleadresowe"
+  description="JET CUTTING Adam Kołaszczyński, ul. Kolejowa 10, 33-132 Niedomice. Tel. 575 794 482. Formularz kontaktowy i dane teleadresowe. Godziny otwarcia: pon–pt 7:30–16:30. Poprzednio High Pres & Mach."
+  canonical="https://high-pres.pl/kontakt/"
 >
   <section class="page-hero">
     <div class="container">
@@ -33,11 +35,15 @@ const contact = {
         <h3>Dane teleadresowe</h3>
         <div class="info-row">
           <strong>Firma</strong>
-          <span>CENTRUM OBRÓBKI WODĄ HIGH PRES</span>
+          <span>JET CUTTING ADAM KOŁASZCZYŃSKI<br /><small>Poprzednio CENTRUM OBRÓBKI WODĄ HIGH PRES</small></span>
         </div>
         <div class="info-row">
           <strong>Adres</strong>
           <span>{contact.street}</span>
+        </div>
+        <div class="info-row">
+          <strong>NIP / REGON</strong>
+          <span>{contact.nip} / {contact.regon}</span>
         </div>
         <div class="info-row">
           <strong>Telefon</strong>
@@ -66,11 +72,11 @@ const contact = {
           <input type="hidden" name="subject" value="Nowe zapytanie z high-pres.pl" />
           <input type="hidden" name="from_name" value="Formularz high-pres.pl" />
           <div class="form-row">
-            <input type="text" name="imie" placeholder="Imię i nazwisko *" required />
-            <input type="email" name="email" placeholder="Adres e-mail *" required />
+              <label>Imię i nazwisko *<input type="text" name="imie" placeholder="np. Anna Kowalska" required /></label>
+            <label>Adres e-mail *<input type="email" name="email" placeholder="np. anna@example.com" required /></label>
           </div>
-          <input type="tel" name="telefon" placeholder="Telefon" />
-          <textarea name="wiadomosc" rows="6" placeholder="Opisz swoje zapytanie — materiał, wymiary, ilość… *" required></textarea>
+          <label>Telefon<input type="tel" name="telefon" placeholder="np. 575 794 482" /></label>
+          <label>Wiadomość *<textarea name="wiadomosc" rows="6" placeholder="Materiał, wymiary, ilość…" required></textarea></label>
           <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
           <button class="btn" type="submit">Wyślij zapytanie</button>
           <p class="form-status" aria-live="polite"></p>

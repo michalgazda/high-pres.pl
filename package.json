@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "validate": "python3 tools/validate-dist.py"
   },
   "dependencies": {
     "astro": "^7.3.2"

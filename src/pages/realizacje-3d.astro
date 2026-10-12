@@ -2,13 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { realizacje3d } from "../data/galleries";
 const base = import.meta.env.BASE_URL;
-const imgPath = 'https://high-pres.pl/wp-content/uploads/2025/07/';
+const imgPath = `${base}images/realizacje-3d/`;
 ---
 
 <BaseLayout
-  title="Realizacje cięcia 3D — HIGH PRES & MACH"
-  description="Galeria realizacji cięcia wodą 3D — fazowanie, stożki do 59°. Jako nieliczni w Małopolsce oferujemy cięcie 3D. Zobacz nasze projekty."
-  canonical="https://michalgazda.github.io/high-pres.pl/realizacje-3d/"
+  title="Realizacje cięcia 3D — JET CUTTING Adam Kołaszczyński"
+  description="Galeria realizacji cięcia wodą 3D — fazowanie, stożki do 59°. Jako nieliczni w Małopolsce oferujemy cięcie 3D. Zobacz nasze projekty. Poprzednio High Pres & Mach."
+  canonical="https://high-pres.pl/realizacje-3d/"
 >
   <section class="page-hero">
     <div class="container">
@@ -19,19 +19,19 @@ const imgPath = 'https://high-pres.pl/wp-content/uploads/2025/07/';
 
   <section class="section">
     <div class="container">
-      <div id="lightbox" class="lightbox">
-        <button class="lb-close" id="lb-close">&times;</button>
+      <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Podgląd realizacji" aria-hidden="true">
+        <button class="lb-close" id="lb-close" aria-label="Zamknij podgląd">&times;</button>
         <div class="lb-nav">
-          <button id="lb-prev">‹</button>
-          <button id="lb-next">›</button>
+          <button id="lb-prev" aria-label="Poprzednia realizacja">‹</button>
+          <button id="lb-next" aria-label="Następna realizacja">›</button>
         </div>
         <img id="lb-img" src="" alt="Podgląd realizacji" />
       </div>
 
       <div data-gallery class="gallery-grid">
         {realizacje3d.map((f) => (
-          <a href={imgPath + f} title="Realizacja 3D">
-            <img src={imgPath + f} alt="Cięcie wodą 3D — realizacja" loading="lazy" />
+          <a href={imgPath + f} title={`Realizacja cięcia wodą 3D — ${f}`}>
+            <img src={imgPath + f} alt={`Realizacja cięcia wodą 3D — ${f}`} loading="lazy" decoding="async" />
           </a>
         ))}
       </div>

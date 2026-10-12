@@ -12,8 +12,11 @@ export interface Props {
 
 const { title, description, canonical, image, noindex } = Astro.props;
 const ogImage = image || `${base}images/hero-bg-1024x366-1.jpg`;
-const fullSite = 'https://michalgazda.github.io';
-const origin = Astro.site.origin;
+const fullSite = 'https://high-pres.pl';
+const basePath = base.replace(/\/$/, '');
+const pagePath = Astro.url.pathname.replace(new RegExp(`^${basePath}`), '') || '/';
+const defaultCanonical = `${fullSite}${basePath}${pagePath === '/' ? '/' : pagePath}`;
+const pageCanonical = canonical || defaultCanonical;
 
 const links = [
   { href: '/', label: 'Strona główna' },
@@ -34,28 +37,39 @@ const links = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <link rel="canonical" href={canonical || `${fullSite}${base}${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`} />
+  <link rel="canonical" href={pageCanonical} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonical || `${fullSite}${base}${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`} />
+  <meta property="og:site_name" content="JET CUTTING Adam Kołaszczyński" />
+  <meta property="og:url" content={pageCanonical} />
   <meta property="og:image" content={`${fullSite}${ogImage}`} />
+  <meta property="og:image:alt" content="JET CUTTING Adam Kołaszczyński — centrum obróbki wodą" />
   <meta property="og:locale" content="pl_PL" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={`${fullSite}${ogImage}`} />
+  <meta name="twitter:url" content={pageCanonical} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
   <link rel="icon" type="image/png" href={`${base}images/favicon.png`} />
   <link rel="stylesheet" href={`${base}styles/global.css`} />
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-    "name": "HIGH PRES & MACH — Centrum Obróbki Wodą",
+    "name": "JET CUTTING Adam Kołaszczyński — Centrum Obróbki Wodą",
+    "alternateName": ["High Pres & Mach", "HIGH PRES"],
     "description": "Precyzyjne cięcie wodą - usługi cięcia i obróbki materiałów za pomocą nowoczesnego abradżetu. Cięcie 2D i 3D metali, kamienia, szkła i tworzyw.",
-    "url": fullSite + base,
+    "url": fullSite,
     "telephone": "+48 575 794 482",
     "email": "biuro@high-pres.pl",
+    "taxID": "8731133493",
+    "vatID": "PL8731133493",
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "REGON",
+      "value": "320038584"
+    },
     "image": fullSite + base + "images/hero-bg-1024x366-1.jpg",
     "address": {
       "@type": "PostalAddress",
@@ -88,10 +102,10 @@ const links = [
   <header>
     <nav class="nav">
       <a class="brand" href={base}>
-        <span class="brand-accent">HIGH PRES</span> <span class="brand-light">& MACH</span>
+        <span class="brand-accent">JET CUTTING</span> <span class="brand-light">Adam Kołaszczyński</span>
       </a>
-      <button class="menu-toggle" aria-label="Menu">☰</button>
-      <div class="nav-links">
+      <button class="menu-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="site-navigation">☰</button>
+      <div id="site-navigation" class="nav-links">
         {links.map((l) => (
           <a href={base + l.href.slice(1)}>{l.label}</a>
         ))}
@@ -99,15 +113,16 @@ const links = [
     </nav>
   </header>
 
-  <main>
+  <a class="skip-link" href="#main-content">Przejdź do treści</a>
+  <main id="main-content">
     <slot />
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <h4>HIGH PRES & MACH</h4>
-        <p>Centrum Obróbki Wodą<br />ul. Kolejowa 10, 33-132 Niedomice</p>
+        <h4>JET CUTTING Adam Kołaszczyński</h4>
+        <p>Centrum Obróbki Wodą<br />ul. Kolejowa 10, 33-132 Niedomice<br />NIP 8731133493 · REGON 320038584</p>
         <p>
           tel. <a href="tel:+48575794482">575 794 482</a> / <a href="tel:+48146575050">14 657 50 50</a><br />
           <a href="mailto:biuro@high-pres.pl">biuro@high-pres.pl</a>
@@ -127,11 +142,12 @@ const links = [
           {links.map((l) => (
             <li><a href={base + l.href.slice(1)}>{l.label}</a></li>
           ))}
+          <li><a href={`${base}polityka-prywatnosci/`}>Polityka prywatności</a></li>
         </ul>
       </div>
     </div>
     <div class="container footer-bottom">
-      <span>© {new Date().getFullYear()} HIGH PRES & MACH. Wszelkie prawa zastrzeżone.</span>
+      <span>© {new Date().getFullYear()} JET CUTTING Adam Kołaszczyński. Poprzednio High Pres & Mach. Wszelkie prawa zastrzeżone.</span>
     </div>
   </footer>
 

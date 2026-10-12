@@ -31,7 +31,7 @@ export const realizacje3d = [
 export const rozetyData = [
   // RIR - Rozety Inne Ręcznie
   ['RIR03-1_tn.jpg','RIR03-2_tn.jpg','RIR03-3_tn.jpg','RIR03-4_tn.jpg'],
-  ['RIR04-1_tn.jpg','RIR04-2_tn.jpg','RIR04-3_tn.jpg','RIR04-4_tn.jpg'],
+  ['RIR04-1_tn.jpg','RIR04-2_tn.jpg','RIR04-3_tn.jpg'],
   ['RIR05-1_tn.jpg','RIR05-2_tn.jpg','RIR05-3_tn.jpg','RIR05-4_tn.jpg'],
   ['RIR06-1_tn.jpg','RIR06-2_tn.jpg','RIR06-3_tn.jpg','RIR06-4_tn.jpg'],
   ['RIR07-1_tn.jpg','RIR07-2_tn.jpg','RIR07-3_tn.jpg','RIR07-4_tn.jpg'],
@@ -68,5 +68,5 @@ export const rozetyData = [
   ['RPA08-1_tn.jpg','RPA08-2_tn.jpg','RPA08-3_tn.jpg','RPA08-4_tn.jpg'],
   ['RPA09-1_tn.jpg','RPA09-2_tn.jpg','RPA09-3_tn.jpg','RPA09-4_tn.jpg'],
   ['RPA10-1_tn.jpg','RPA10-2_tn.jpg','RPA10-3_tn.jpg','RPA10-4_tn.jpg'],
-  ['RPA11-1_tn.jpg','RPA11-2_tn.jpg','RPA11-3_tn.jpg','RPA11-4_tn.jpg'],
+  ['RPA11-1_tn.jpg','RPA11-2_tn.jpg'],
 ];
