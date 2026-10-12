@@ -2,7 +2,7 @@ backend:
   name: github
   repo: michalgazda/high-pres.pl
   branch: main
-  base_url: https://highpres-decap-oauth.michalgazda.workers.dev
+  base_url: https://highpres-decap-oauth.przestrzendobra.workers.dev
   auth_endpoint: /auth
 
 site_url: https://michalgazda.github.io/high-pres.pl/
