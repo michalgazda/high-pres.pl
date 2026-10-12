@@ -61,6 +61,19 @@ a:hover {
   color: var(--blue-deep);
 }
 
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2000;
+  padding: 10px 14px;
+  color: var(--white);
+  background: var(--blue-deep);
+  border-radius: 6px;
+  transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 700;
