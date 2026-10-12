@@ -1,11 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteRaw from '../data/site.json';
+import pageRaw from '../data/uslugi.json';
+
 const base = import.meta.env.BASE_URL;
+const site = (siteRaw as any).site;
+const p = (pageRaw as any).uslugi;
 ---
 
 <BaseLayout
-  title="Usługi cięcia wodą 2D i 3D — JET CUTTING Adam Kołaszczyński"
-  description="Profesjonalne cięcie wodą: stół 4,2×2 m, grubość do 200 mm, tolerancja 0,1 mm. Cięcie 2D, 3D, grawerowanie. Tniemy stal, aluminium, kamień, szkło, tworzywa i drewno. Poprzednio High Pres & Mach."
+  title={`Usługi cięcia wodą 2D i 3D — ${site.companyShort}`}
+  description={`Profesjonalne cięcie wodą: stół 4,2×2 m, grubość do 200 mm, tolerancja 0,1 mm. Cięcie 2D, 3D, grawerowanie. Tniemy stal, aluminium, kamień, szkło, tworzywa i drewno. Poprzednio ${site.previousName}.`}
   canonical="https://high-pres.pl/uslugi/"
 >
   <section class="page-hero">
@@ -20,40 +25,22 @@ const base = import.meta.env.BASE_URL;
       <div class="price-box" style="background:var(--blue-deep);color:var(--white)">
         <h3 style="color:var(--white)">📐 Parametry techniczne</h3>
         <ul>
-          <li>Stół roboczy: <strong>4,2 m × 2 m</strong></li>
-          <li>Grubość cięcia: do <strong>200 mm</strong></li>
-          <li>Tolerancja wykonania: <strong>0,1 mm / 1000 mm</strong> cięcia</li>
-          <li>5 klas jakości cięcia: od 1 (do dalszej obróbki) do 5 (najdokładniejsza)</li>
-          <li>Możliwość cięcia grubszych materiałów po uzgodnieniu szczegółów</li>
+          <li>Stół roboczy: <strong>{p.params.table}</strong></li>
+          <li>Grubość cięcia: do <strong>{p.params.thickness}</strong></li>
+          <li>Tolerancja wykonania: <strong>{p.params.tolerance}</strong> cięcia</li>
+          <li>5 klas jakości cięcia: {p.params.qualityClasses}</li>
+          <li>{p.params.customThickness}</li>
         </ul>
       </div>
 
       <h2 style="margin-top:50px">Zakres usług</h2>
       <div class="features-grid" style="margin-top:24px">
-        <div class="card">
-          <h3>🔄 Cięcie 3D</h3>
-          <p>Fazowanie, wycinanie stożków do kąta 59°. Jako nieliczni w Małopolsce mamy możliwość cięcia 3D.</p>
-        </div>
-        <div class="card">
-          <h3>📏 Cięcie 2D</h3>
-          <p>Każdy kształt płaski — od prostych profili po skomplikowane geometrie.</p>
-        </div>
-        <div class="card">
-          <h3>✂️ Cięcie wzdłużne i nadcinanie</h3>
-          <p>Precyzyjne rozcinanie blach oraz nadcinanie wg zadanych wymiarów.</p>
-        </div>
-        <div class="card">
-          <h3>⭕ Wykrawanie i otwory</h3>
-          <p>Wykrawanie, dziurkowanie od średnicy 0,9 mm, wycinanie kół zębatych.</p>
-        </div>
-        <div class="card">
-          <h3>🖊️ Grawerowanie i trasowanie</h3>
-          <p>Kreślenie rysunków oraz napisów nawet w najtwardszych materiałach.</p>
-        </div>
-        <div class="card">
-          <h3>📦 Szablony i detale</h3>
-          <p>Wykonujemy detale według dostarczonych szablonów oraz kształtujemy bryły.</p>
-        </div>
+        {p.services.map((svc: any) => (
+          <div class="card">
+            <h3>{svc.icon} {svc.title}</h3>
+            <p>{svc.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -63,30 +50,12 @@ const base = import.meta.env.BASE_URL;
       <h2>Materiały, które tniemy</h2>
       <p class="subtitle">Tniemy i obrabiamy wszystkie materiały, nawet najbardziej nietypowe.</p>
       <div class="features-grid">
-        <div class="card">
-          <h3>Stale</h3>
-          <p>Konstrukcyjne, narzędziowe (węglowe i stopowe), specjalne (nierdzewne, kwasoodporne, żaroodporne, żarowytrzymałe).</p>
-        </div>
-        <div class="card">
-          <h3>Metale kolorowe</h3>
-          <p>Miedź, ołów, aluminium i ich stopy — mosiądz, brąz, tytan.</p>
-        </div>
-        <div class="card">
-          <h3>Kamienie naturalne</h3>
-          <p>Granit, marmur, piaskowiec, łupki oraz wszelkie konglomeraty.</p>
-        </div>
-        <div class="card">
-          <h3>Szkło i ceramika</h3>
-          <p>Cięcie szkła umożliwiające maksymalne wykorzystanie kosztownego materiału, ceramika techniczna i dekoracyjna.</p>
-        </div>
-        <div class="card">
-          <h3>Drewno i materiały drewnopochodne</h3>
-          <p>Sklejka, płyty wiórowe, MDF, OSB. Doskonałe do wycinania bardzo skomplikowanych kształtów.</p>
-        </div>
-        <div class="card">
-          <h3>Tworzywa sztuczne i inne</h3>
-          <p>Teflon, poliamid, poliacetal, PET, polietylen, polipropylen, gumy, pianki i materiały reklamowe.</p>
-        </div>
+        {p.materials.map((mat: any) => (
+          <div class="card">
+            <h3>{mat.title}</h3>
+            <p>{mat.text}</p>
+          </div>
+        ))}
       </div>
       <div style="text-align:center;margin-top:36px">
         <a href={`${base}kontakt/`} class="btn btn-gold">Zapytaj o wycenę</a>

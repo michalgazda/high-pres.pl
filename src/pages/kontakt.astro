@@ -1,25 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteRaw from '../data/site.json';
+import kontaktRaw from '../data/kontakt.json';
 
 const base = import.meta.env.BASE_URL;
-const contact = {
-  company: 'JET CUTTING ADAM KOŁASZCZYŃSKI',
-  street: 'ul. Kolejowa 10, 33-132 Niedomice, woj. małopolskie',
-  nip: '8731133493',
-  regon: '320038584',
-  phone1: '575 794 482',
-  phone2: '14 657 50 50',
-  phone1Href: '+48575794482',
-  phone2Href: '+48146575050',
-  email1: 'biuro@high-pres.pl',
-  email2: 'biuro@mach24.pl',
-  hours: 'Pon–Pt: 7:30 – 16:30',
-};
+const site = (siteRaw as any).site;
+const k = (kontaktRaw as any).kontakt;
 ---
 
 <BaseLayout
-  title="Kontakt — JET CUTTING Adam Kołaszczyński | Dane teleadresowe"
-  description="JET CUTTING Adam Kołaszczyński, ul. Kolejowa 10, 33-132 Niedomice. Tel. 575 794 482. Formularz kontaktowy i dane teleadresowe. Godziny otwarcia: pon–pt 7:30–16:30. Poprzednio High Pres & Mach."
+  title={`Kontakt — ${site.companyShort} | Dane teleadresowe`}
+  description={`${site.companyShort}, ${site.street}, ${site.postalCode} ${site.city}. Tel. ${site.phone1}. Formularz kontaktowy i dane teleadresowe. Godziny otwarcia: pon–pt 7:30–16:30. Poprzednio ${site.previousName}.`}
   canonical="https://high-pres.pl/kontakt/"
 >
   <section class="page-hero">
@@ -35,25 +26,25 @@ const contact = {
         <h3>Dane teleadresowe</h3>
         <div class="info-row">
           <strong>Firma</strong>
-          <span>JET CUTTING ADAM KOŁASZCZYŃSKI<br /><small>Poprzednio CENTRUM OBRÓBKI WODĄ HIGH PRES</small></span>
+          <span>{site.company}<br /><small>Poprzednio {site.previousNameLong}</small></span>
         </div>
         <div class="info-row">
           <strong>Adres</strong>
-          <span>{contact.street}</span>
+          <span>{site.street}</span>
         </div>
         <div class="info-row">
           <strong>NIP / REGON</strong>
-          <span>{contact.nip} / {contact.regon}</span>
+          <span>{site.nip} / {site.regon}</span>
         </div>
         <div class="info-row">
           <strong>Telefon</strong>
-          <a href={`tel:${contact.phone1Href}`}>{contact.phone1}</a><br />
-          <a href={`tel:${contact.phone2Href}`}>{contact.phone2}</a>
+          <a href={`tel:${site.phone1Href}`}>{site.phone1}</a><br />
+          <a href={`tel:${site.phone2Href}`}>{site.phone2}</a>
         </div>
         <div class="info-row">
           <strong>E-mail</strong>
-          <a href={`mailto:${contact.email1}`}>{contact.email1}</a><br />
-          <a href={`mailto:${contact.email2}`}>{contact.email2}</a>
+          <a href={`mailto:${site.email1}`}>{site.email1}</a><br />
+          <a href={`mailto:${site.email2}`}>{site.email2}</a>
         </div>
         <div class="info-row">
           <strong>Strony WWW</strong>
@@ -61,7 +52,7 @@ const contact = {
         </div>
         <div class="info-row">
           <strong>Godziny otwarcia</strong>
-          <span>{contact.hours}</span>
+          <span>{site.hours}</span>
         </div>
       </div>
 
@@ -88,8 +79,8 @@ const contact = {
 
   <section class="section section-alt">
     <div class="container">
-      <h2>Dojazd do nas</h2>
-      <p class="subtitle">ul. Kolejowa 10, 33-132 Niedomice (k. Tarnowa)</p>
+      <h2>{k.driveTitle}</h2>
+      <p class="subtitle">{k.driveSubtitle}</p>
       <div class="map-wrap">
         <iframe title="Mapa dojazdu — JET CUTTING, Niedomice" src="https://maps.google.com/maps?q=Kolejowa%2010%2C%2033-132%20Niedomice&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="400" style="border:0;border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>

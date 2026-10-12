@@ -1,22 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteRaw from '../data/site.json';
+import pageRaw from '../data/homepage.json';
 
 const base = import.meta.env.BASE_URL;
-const fullSite = 'https://high-pres.pl';
+const site = (siteRaw as any).site;
+const p = (pageRaw as any).homepage;
 ---
 
 <BaseLayout
-  title="JET CUTTING Adam Kołaszczyński — Precyzyjne cięcie wodą | Tarnowskie Centrum Obróbki Wodą"
-  description="Centrum obróbki wodą JET CUTTING Adam Kołaszczyński w Niedomicach k. Tarnowa. Oferujemy precyzyjne cięcie wodą 2D i 3D metali, kamienia, szkła i tworzyw. Zapraszamy do kontaktu. Poprzednio High Pres & Mach."
+  title={`${site.companyShort} — Precyzyjne cięcie wodą | Tarnowskie Centrum Obróbki Wodą`}
+  description={`Centrum obróbki wodą ${site.companyShort} w Niedomicach k. Tarnowa. Oferujemy precyzyjne cięcie wodą 2D i 3D metali, kamienia, szkła i tworzyw. Zapraszamy do kontaktu. Poprzednio ${site.previousName}.`}
   canonical="https://high-pres.pl/"
 >
   <!-- Hero -->
   <section class="hero">
     <img src={`${base}images/hero-bg-1024x366-1.jpg`} alt="" class="hero-bg" aria-hidden="true" />
     <div class="container hero-content">
-      <h1>Precyzyjne cięcie wodą<br />dla Twojego biznesu</h1>
-      <p>Oferujemy innowacyjne rozwiązania w obróbce materiałów, skupiając się na precyzyjnym cięciu wodą najwyższej jakości. Nowoczesne centrum OMAX 80X z głowicą Tilt-A-Jet™.</p>
-      <a href={`${base}kontakt/`} class="btn btn-gold">Skontaktuj się z nami</a>
+      <h1 set:html={p.hero.title} />
+      <p>{p.hero.subtitle}</p>
+      <a href={`${base}kontakt/`} class="btn btn-gold">{p.hero.cta}</a>
     </div>
   </section>
 
@@ -24,17 +27,17 @@ const fullSite = 'https://high-pres.pl';
   <section class="section">
     <div class="container">
       <h2>Poznaj naszą firmę</h2>
-      <p class="subtitle">W JET CUTTING Adam Kołaszczyński stawiamy na jakość, innowacyjność i kompleksową obsługę naszych klientów. Poprzednio High Pres & Mach.</p>
+      <p class="subtitle">{p.about.subtitle}</p>
 
       <div class="two-col">
         <div>
-          <h3>O nas — JET CUTTING</h3>
-          <p>Jesteśmy nowoczesną firmą, która z pasją realizuje projektowanie i cięcie materiałów od kilkunastu lat. Efektem wspólnych działań jest nowoczesne centrum obróbcze OMAX 80X Jet Machining Center IntelliTRAX wyposażone w głowice Tilt-A-Jet™ oraz Bevel Head, które umożliwia realizację nawet najbardziej niekonwencjonalnych projektów.</p>
-          <p style="margin-top:12px">Dzięki naszemu doświadczeniu zyskaliśmy zaufanie lokalnych i krajowych klientów.</p>
+          <h3>{p.about.heading}</h3>
+          <p>{p.about.paragraph1}</p>
+          <p style="margin-top:12px">{p.about.paragraph2}</p>
           <br />
-          <a href={`${base}technologia/`} class="btn">Poznaj naszą technologię</a>
+          <a href={`${base}technologia/`} class="btn">{p.about.cta}</a>
         </div>
-        <img src={`${base}images/baner2.jpg`} alt="Centrum obróbki wodą JET CUTTING Adam Kołaszczyński" loading="lazy" />
+        <img src={`${base}images/baner2.jpg`} alt={p.about.imageAlt} loading="lazy" />
       </div>
     </div>
   </section>
@@ -42,25 +45,17 @@ const fullSite = 'https://high-pres.pl';
   <!-- Dlaczego warto -->
   <section class="section section-alt">
     <div class="container">
-      <h2>Dlaczego warto wybrać JET CUTTING?</h2>
-      <p class="subtitle">Nowoczesne technologie, precyzja wykonania i pełne wsparcie na każdym etapie.</p>
+      <h2>{p.whyUs.heading}</h2>
+      <p class="subtitle">{p.whyUs.subtitle}</p>
 
       <div class="features-grid">
-        <div class="card">
-          <div class="card-icon">🔧</div>
-          <h3>Innowacyjność</h3>
-          <p>Wykorzystujemy nowoczesne technologie, aby zapewnić najwyższą jakość obróbki metalu. Nasze centrum OMAX 80X to jedna z najnowocześniejszych maszyn w Małopolsce.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🎯</div>
-          <h3>Precyzja</h3>
-          <p>Nasze cięcie wodą gwarantuje doskonałe wykończenie i minimalne straty materiału. Tolerancja wykonania: 0,1 mm/1000 mm cięcia, 5 klas jakości.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🤝</div>
-          <h3>Wsparcie</h3>
-          <p>Oferujemy pełne doradztwo oraz pomoc na każdym etapie realizacji projektu — od wyceny po dostawę gotowych elementów.</p>
-        </div>
+        {p.whyUs.cards.map((card: any) => (
+          <div class="card">
+            <div class="card-icon">{card.icon}</div>
+            <h3>{card.title}</h3>
+            <p>{card.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -68,21 +63,18 @@ const fullSite = 'https://high-pres.pl';
   <!-- Usługi w skrócie -->
   <section class="section">
     <div class="container">
-      <h2>Nasze usługi</h2>
-      <p class="subtitle">Kompleksowe cięcie wodą — od prostych detali po skomplikowane projekty 3D.</p>
+      <h2>{p.servicesSummary.heading}</h2>
+      <p class="subtitle">{p.servicesSummary.subtitle}</p>
 
       <div class="two-col two-col-reverse">
         <div>
           <ul class="check-list">
-            <li><strong>Cięcie 3D</strong> — fazowanie, wycinanie stożków do kąta 59°</li>
-            <li><strong>Cięcie 2D</strong> — każdy kształt płaski</li>
-            <li><strong>Cięcie wzdłużne, nadcinanie, wykrawanie</strong></li>
-            <li><strong>Wycinanie kół zębatych</strong> i wykonywanie otworów (od Ø 0,9 mm)</li>
-            <li><strong>Grawerowanie i trasowanie</strong> napisów w najtwardszych materiałach</li>
-            <li>Stół roboczy: <strong>4,2 m × 2 m</strong>, do grubości <strong>200 mm</strong></li>
+            {p.servicesSummary.items.map((item: string) => (
+              <li set:html={item} />
+            ))}
           </ul>
           <br />
-          <a href={`${base}uslugi/`} class="btn">Zobacz wszystkie usługi</a>
+          <a href={`${base}uslugi/`} class="btn">{p.servicesSummary.cta}</a>
         </div>
         <img src={`${base}images/macro-focus-cogwheel-gear-159275.jpeg`} alt="Precyzyjne cięcie metalu wodą" loading="lazy" />
       </div>
@@ -92,8 +84,8 @@ const fullSite = 'https://high-pres.pl';
   <!-- Galerie CTA -->
   <section class="section section-alt">
     <div class="container" style="text-align:center">
-      <h2>Zobacz nasze realizacje</h2>
-      <p class="subtitle">Setki zrealizowanych projektów — od rozet dekoracyjnych po skomplikowane elementy konstrukcyjne.</p>
+      <h2>{p.galleryCta.heading}</h2>
+      <p class="subtitle">{p.galleryCta.subtitle}</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:20px">
         <a href={`${base}realizacje-2d/`} class="btn">Realizacje 2D</a>
         <a href={`${base}realizacje-3d/`} class="btn">Realizacje 3D</a>
@@ -105,9 +97,9 @@ const fullSite = 'https://high-pres.pl';
   <!-- Kontakt CTA -->
   <section class="section section-dark" style="text-align:center">
     <div class="container">
-      <h2>Potrzebujesz wyceny?</h2>
-      <p class="subtitle">Skontaktuj się z nami — wycenimy Twój projekt bezpłatnie!</p>
-      <a href={`${base}wyceny/`} class="btn btn-gold" style="margin-top:10px">Zamów wycenę</a>
+      <h2>{p.contactCta.heading}</h2>
+      <p class="subtitle">{p.contactCta.subtitle}</p>
+      <a href={`${base}wyceny/`} class="btn btn-gold" style="margin-top:10px">{p.contactCta.cta}</a>
     </div>
   </section>
 </BaseLayout>

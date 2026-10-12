@@ -1,6 +1,8 @@
 ---
 // Base Layout — shared shell for high-pres.pl site
+import siteRaw from '../data/site.json';
 const base = import.meta.env.BASE_URL;
+const site = (siteRaw as any).site;
 
 export interface Props {
   title: string;
@@ -121,16 +123,16 @@ const links = [
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <h4>JET CUTTING Adam Kołaszczyński</h4>
-        <p>Centrum Obróbki Wodą<br />ul. Kolejowa 10, 33-132 Niedomice<br />NIP 8731133493 · REGON 320038584</p>
-        <p>
-          tel. <a href="tel:+48575794482">575 794 482</a> / <a href="tel:+48146575050">14 657 50 50</a><br />
-          <a href="mailto:biuro@high-pres.pl">biuro@high-pres.pl</a>
+        <h4>{site.companyShort}</h4>
+                <p>{site.tagline}<br />{site.street}, {site.postalCode} {site.city}<br />NIP {site.nip} · REGON {site.regon}</p>
+                <p>
+                  tel. <a href={`tel:${site.phone1Href}`}>{site.phone1}</a> / <a href={`tel:${site.phone2Href}`}>{site.phone2}</a><br />
+                  <a href={`mailto:${site.email1}`}>{site.email1}</a>
         </p>
       </div>
       <div>
         <h4>Godziny otwarcia</h4>
-        <p>Pon–Pt: 7:30 – 16:30</p>
+        <p>{site.hours}</p>
       </div>
       <div>
         <h4>Strony</h4>
@@ -147,7 +149,7 @@ const links = [
       </div>
     </div>
     <div class="container footer-bottom">
-      <span>© {new Date().getFullYear()} JET CUTTING Adam Kołaszczyński. Poprzednio High Pres & Mach. Wszelkie prawa zastrzeżone.</span>
+      <span>© {new Date().getFullYear()} {site.companyShort}. Poprzednio {site.previousName}. Wszelkie prawa zastrzeżone.</span>
     </div>
   </footer>
 

@@ -1,11 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteRaw from '../data/site.json';
+import pageRaw from '../data/wyceny.json';
+
 const base = import.meta.env.BASE_URL;
+const site = (siteRaw as any).site;
+const p = (pageRaw as any).wyceny;
 ---
 
 <BaseLayout
-  title="Wyceny i wycena usług cięcia wodą — JET CUTTING Adam Kołaszczyński"
-  description="Zamów bezpłatną wycenę cięcia wodą. Podaj grubość i gatunek materiału, jakość cięcia i ilość elementów. Wykonamy ofertę na podstawie rysunku, pliku lub zdjęcia. Poprzednio High Pres & Mach."
+  title={`Wyceny i wycena usług cięcia wodą — ${site.companyShort}`}
+  description={`Zamów bezpłatną wycenę cięcia wodą. Podaj grubość i gatunek materiału, jakość cięcia i ilość elementów. Wykonamy ofertę na podstawie rysunku, pliku lub zdjęcia. Poprzednio ${site.previousName}.`}
   canonical="https://high-pres.pl/wyceny/"
 >
   <section class="page-hero">
@@ -17,36 +22,17 @@ const base = import.meta.env.BASE_URL;
 
   <section class="section">
     <div class="container">
-      <div class="price-box">
-        <h3>📄 Wycenę możemy dokonać na podstawie:</h3>
-        <ul>
-          <li>rysunku w formie elektronicznej w dowolnym rozszerzeniu (preferowane są pliki .dwg i .dxf)</li>
-          <li>rysunku technicznego poprawnie zwymiarowanego</li>
-          <li>pliku graficznego lub zdjęcia z opisem</li>
-        </ul>
-        <p style="margin-top:12px">W razie potrzeby wykonamy projekt oraz wycenę na podstawie dostarczonego detalu, szablonu itp.</p>
-      </div>
-
-      <div class="price-box">
-        <h3>📋 Niezbędne do wyceny są informacje:</h3>
-        <ul>
-          <li>grubość materiału</li>
-          <li>gatunek materiału</li>
-          <li>wymagana jakość cięcia</li>
-          <li>przewidywana ilość elementów</li>
-        </ul>
-        <p style="margin-top:12px">Cena usługi cięcia metra bieżącego zależy od grubości i gatunku materiału, wymaganej jakości cięcia oraz stopnia skomplikowania kształtów.</p>
-      </div>
-
-      <div class="price-box">
-        <h3>📞 Zapytanie o wycenę możesz złożyć:</h3>
-        <ul>
-          <li><strong>osobiście</strong> — ul. Kolejowa 10, 33-132 Niedomice</li>
-          <li><strong>pocztą elektroniczną</strong> — <a href="mailto:biuro@high-pres.pl">biuro@high-pres.pl</a> lub <a href="mailto:biuro@mach24.pl">biuro@mach24.pl</a></li>
-          <li><strong>telefonicznie</strong> — <a href="tel:+48146575050">14 657 50 50</a>, <a href="tel:+48575794482">575 794 482</a></li>
-        </ul>
-        <p style="margin-top:12px">Na podstawie otrzymanych danych wykonujemy <strong>bezpłatnie ofertę</strong> na usługę cięcia i przesyłamy ją do zaakceptowania.</p>
-      </div>
+      {p.blocks.map((block: any) => (
+        <div class="price-box">
+          <h3>{block.heading}</h3>
+          <ul>
+            {block.items.map((item: string) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          {block.footer && <p style="margin-top:12px">{block.footer}</p>}
+        </div>
+      ))}
 
       <div style="text-align:center;margin-top:36px">
         <a href={`${base}kontakt/`} class="btn btn-gold">Przejdź do formularza kontaktowego</a>

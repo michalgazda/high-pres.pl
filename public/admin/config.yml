@@ -1,0 +1,209 @@
+backend:
+  name: github
+  repo: michalgazda/high-pres.pl
+  branch: main
+  base_url: https://highpres-decap-oauth.michalgazda.workers.dev
+  auth_endpoint: /auth
+
+site_url: https://michalgazda.github.io/high-pres.pl/
+display_url: https://michalgazda.github.io/high-pres.pl/
+
+media_folder: "public/images/uploads"
+public_folder: "/high-pres.pl/images/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "site"
+    label: "Dane firmy"
+    editor:
+      preview: false
+    files:
+      - name: "site-data"
+        label: "Dane kontaktowe i firmowe"
+        file: "src/data/site.json"
+        fields:
+          - { label: "Nazwa firmy (pełna)", name: "company", widget: "string" }
+          - { label: "Nazwa firmy (krótka)", name: "companyShort", widget: "string" }
+          - { label: "Poprzednia nazwa", name: "previousName", widget: "string" }
+          - { label: "Poprzednia nazwa (długa)", name: "previousNameLong", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - label: "Adres"
+            name: "street"
+            widget: "string"
+          - { label: "Kod pocztowy", name: "postalCode", widget: "string" }
+          - { label: "Miejscowość", name: "city", widget: "string" }
+          - { label: "Województwo", name: "region", widget: "string" }
+          - { label: "NIP", name: "nip", widget: "string" }
+          - { label: "REGON", name: "regon", widget: "string" }
+          - { label: "Telefon 1", name: "phone1", widget: "string" }
+          - { label: "Telefon 1 (href)", name: "phone1Href", widget: "string" }
+          - { label: "Telefon 2", name: "phone2", widget: "string" }
+          - { label: "Telefon 2 (href)", name: "phone2Href", widget: "string" }
+          - { label: "E-mail 1", name: "email1", widget: "string" }
+          - { label: "E-mail 2", name: "email2", widget: "string" }
+          - { label: "Godziny otwarcia", name: "hours", widget: "string" }
+          - { label: "Strona WWW", name: "url", widget: "string" }
+          - { label: "Strona WWW (dodatkowa)", name: "urlAlt", widget: "string" }
+
+  - name: "homepage"
+    label: "Strona główna"
+    editor:
+      preview: false
+    files:
+      - name: "homepage-content"
+        label: "Treść strony głównej"
+        file: "src/data/homepage.json"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Tytuł", name: "title", widget: "text" }
+              - { label: "Podtytuł", name: "subtitle", widget: "text" }
+              - { label: "Czynność (przycisk)", name: "cta", widget: "string" }
+          - label: "O firmie"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Podtytuł", name: "subtitle", widget: "text" }
+              - { label: "Nagłówek", name: "heading", widget: "string" }
+              - { label: "Akapit 1", name: "paragraph1", widget: "text" }
+              - { label: "Akapit 2", name: "paragraph2", widget: "text" }
+              - { label: "Czynność (przycisk)", name: "cta", widget: "string" }
+              - { label: "Alt zdjęcia", name: "imageAlt", widget: "string" }
+          - label: "Dlaczego warto"
+            name: "whyUs"
+            widget: "object"
+            fields:
+              - { label: "Nagłówek", name: "heading", widget: "string" }
+              - { label: "Podtytuł", name: "subtitle", widget: "string" }
+              - label: "Kafelki"
+                name: "cards"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Ikona (emoji)", name: "icon", widget: "string" }
+                  - { label: "Tytuł", name: "title", widget: "string" }
+                  - { label: "Tekst", name: "text", widget: "text" }
+          - label: "Usługi (skrót)"
+            name: "servicesSummary"
+            widget: "object"
+            fields:
+              - { label: "Nagłówek", name: "heading", widget: "string" }
+              - { label: "Podtytuł", name: "subtitle", widget: "string" }
+              - label: "Lista usług"
+                name: "items"
+                widget: "list"
+                field: { label: "Usługa", name: "item", widget: "string" }
+              - { label: "Czynność (przycisk)", name: "cta", widget: "string" }
+          - label: "Galeria CTA"
+            name: "galleryCta"
+            widget: "object"
+            fields:
+              - { label: "Nagłówek", name: "heading", widget: "string" }
+              - { label: "Podtytuł", name: "subtitle", widget: "string" }
+          - label: "Kontakt CTA"
+            name: "contactCta"
+            widget: "object"
+            fields:
+              - { label: "Nagłówek", name: "heading", widget: "string" }
+              - { label: "Podtytuł", name: "subtitle", widget: "string" }
+              - { label: "Czynność (przycisk)", name: "cta", widget: "string" }
+
+  - name: "technologia"
+    label: "Technologia"
+    editor:
+      preview: false
+    files:
+      - name: "technologia-content"
+        label: "Treść strony technologii"
+        file: "src/data/technologia.json"
+        fields:
+          - { label: "Nagłówek wstępu", name: "introHeading", widget: "string" }
+          - { label: "Tekst wstępu", name: "introText", widget: "text" }
+          - { label: "Nagłówek zalet", name: "advantagesHeading", widget: "string" }
+          - label: "Zalety"
+            name: "advantages"
+            widget: "list"
+            field: { label: "Zaleta", name: "item", widget: "text" }
+          - label: "Jak tniemy"
+            name: "howWeCut"
+            widget: "object"
+            fields:
+              - { label: "Podtytuł", name: "subtitle", widget: "text" }
+              - label: "Kafelki"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Tytuł", name: "title", widget: "string" }
+                  - { label: "Tekst", name: "text", widget: "text" }
+
+  - name: "uslugi"
+    label: "Usługi"
+    editor:
+      preview: false
+    files:
+      - name: "uslugi-content"
+        label: "Treść strony usług"
+        file: "src/data/uslugi.json"
+        fields:
+          - label: "Parametry techniczne"
+            name: "params"
+            widget: "object"
+            fields:
+              - { label: "Stół", name: "table", widget: "string" }
+              - { label: "Grubość", name: "thickness", widget: "string" }
+              - { label: "Tolerancja", name: "tolerance", widget: "string" }
+              - { label: "Klasy jakości", name: "qualityClasses", widget: "string" }
+              - { label: "Uwaga o grubszych", name: "customThickness", widget: "string" }
+          - label: "Zakres usług"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Ikona (emoji)", name: "icon", widget: "string" }
+              - { label: "Tytuł", name: "title", widget: "string" }
+              - { label: "Tekst", name: "text", widget: "text" }
+          - label: "Materiały"
+            name: "materials"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Tytuł", name: "title", widget: "string" }
+              - { label: "Tekst", name: "text", widget: "text" }
+
+  - name: "wyceny"
+    label: "Wyceny"
+    editor:
+      preview: false
+    files:
+      - name: "wyceny-content"
+        label: "Treść strony wycen"
+        file: "src/data/wyceny.json"
+        fields:
+          - label: "Bloki"
+            name: "blocks"
+            widget: "list"
+            summary: "{{fields.heading}}"
+            fields:
+              - { label: "Nagłówek", name: "heading", widget: "string" }
+              - label: "Punkty"
+                name: "items"
+                widget: "list"
+                field: { label: "Punkt", name: "item", widget: "string" }
+              - { label: "Stopka", name: "footer", widget: "text", required: false }
+
+  - name: "kontakt"
+    label: "Kontakt"
+    editor:
+      preview: false
+    files:
+      - name: "kontakt-content"
+        label: "Treść strony kontaktu"
+        file: "src/data/kontakt.json"
+        fields:
+          - { label: "Tytuł strony", name: "pageTitle", widget: "string" }
+          - { label: "Podtytuł", name: "pageSubtitle", widget: "string" }
+          - { label: "Dojazd — nagłówek", name: "driveTitle", widget: "string" }
+          - { label: "Dojazd — podtytuł", name: "driveSubtitle", widget: "string" }
