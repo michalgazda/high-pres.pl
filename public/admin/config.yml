@@ -66,6 +66,7 @@ collections:
             name: "about"
             widget: "object"
             fields:
+              - { label: "Nagłówek sekcji", name: "sectionHeading", widget: "string" }
               - { label: "Podtytuł", name: "subtitle", widget: "text" }
               - { label: "Nagłówek", name: "heading", widget: "string" }
               - { label: "Akapit 1", name: "paragraph1", widget: "text" }
