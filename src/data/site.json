@@ -1,0 +1,24 @@
+{
+  "site": {
+    "company": "JET CUTTING ADAM KOŁASZCZYŃSKI",
+    "companyShort": "JET CUTTING Adam Kołaszczyński",
+    "previousName": "High Pres & Mach",
+    "previousNameLong": "Centrum Obróbki Wodą HIGH PRES",
+    "tagline": "Centrum Obróbki Wodą",
+    "street": "ul. Kolejowa 10",
+    "postalCode": "33-132",
+    "city": "Niedomice",
+    "region": "woj. małopolskie",
+    "nip": "8731133493",
+    "regon": "320038584",
+    "phone1": "575 794 482",
+    "phone1Href": "+48575794482",
+    "phone2": "14 657 50 50",
+    "phone2Href": "+48146575050",
+    "email1": "biuro@high-pres.pl",
+    "email2": "biuro@mach24.pl",
+    "hours": "Pon–Pt: 7:30 – 16:30",
+    "url": "https://high-pres.pl",
+    "urlAlt": "https://www.mach24.pl"
+  }
+}

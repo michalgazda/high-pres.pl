@@ -1,0 +1,34 @@
+{
+  "wyceny": {
+    "blocks": [
+      {
+        "heading": "📄 Wycenę możemy dokonać na podstawie:",
+        "items": [
+          "rysunku w formie elektronicznej w dowolnym rozszerzeniu (preferowane są pliki .dwg i .dxf)",
+          "rysunku technicznego poprawnie zwymiarowanego",
+          "pliku graficznego lub zdjęcia z opisem"
+        ],
+        "footer": "W razie potrzeby wykonamy projekt oraz wycenę na podstawie dostarczonego detalu, szablonu itp."
+      },
+      {
+        "heading": "📋 Niezbędne do wyceny są informacje:",
+        "items": [
+          "grubość materiału",
+          "gatunek materiału",
+          "wymagana jakość cięcia",
+          "przewidywana ilość elementów"
+        ],
+        "footer": "Cena usługi cięcia metra bieżącego zależy od grubości i gatunku materiału, wymaganej jakości cięcia oraz stopnia skomplikowania kształtów."
+      },
+      {
+        "heading": "📞 Zapytanie o wycenę możesz złożyć:",
+        "items": [
+          "osobiście — ul. Kolejowa 10, 33-132 Niedomice",
+          "pocztą elektroniczną — biuro@high-pres.pl lub biuro@mach24.pl",
+          "telefonicznie — 14 657 50 50, 575 794 482"
+        ],
+        "footer": "Na podstawie otrzymanych danych wykonujemy bezpłatnie ofertę na usługę cięcia i przesyłamy ją do zaakceptowania."
+      }
+    ]
+  }
+}

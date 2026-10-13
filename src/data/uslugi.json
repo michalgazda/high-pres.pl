@@ -1,0 +1,27 @@
+{
+  "uslugi": {
+    "params": {
+      "table": "4,2 m × 2 m",
+      "thickness": "200 mm",
+      "tolerance": "0,1 mm / 1000 mm",
+      "qualityClasses": "od 1 (do dalszej obróbki) do 5 (najdokładniejsza)",
+      "customThickness": "Możliwość cięcia grubszych materiałów po uzgodnieniu szczegółów"
+    },
+    "services": [
+      { "icon": "🔄", "title": "Cięcie 3D", "text": "Fazowanie, wycinanie stożków do kąta 59°. Jako nieliczni w Małopolsce mamy możliwość cięcia 3D." },
+      { "icon": "📏", "title": "Cięcie 2D", "text": "Każdy kształt płaski — od prostych profili po skomplikowane geometrie." },
+      { "icon": "✂️", "title": "Cięcie wzdłużne i nadcinanie", "text": "Precyzyjne rozcinanie blach oraz nadcinanie wg zadanych wymiarów." },
+      { "icon": "⭕", "title": "Wykrawanie i otwory", "text": "Wykrawanie, dziurkowanie od średnicy 0,9 mm, wycinanie kół zębatych." },
+      { "icon": "🖊️", "title": "Grawerowanie i trasowanie", "text": "Kreślenie rysunków oraz napisów nawet w najtwardszych materiałach." },
+      { "icon": "📦", "title": "Szablony i detale", "text": "Wykonujemy detale według dostarczonych szablonów oraz kształtujemy bryły." }
+    ],
+    "materials": [
+      { "title": "Stale", "text": "Konstrukcyjne, narzędziowe (węglowe i stopowe), specjalne (nierdzewne, kwasoodporne, żaroodporne, żarowytrzymałe)." },
+      { "title": "Metale kolorowe", "text": "Miedź, ołów, aluminium i ich stopy — mosiądz, brąz, tytan." },
+      { "title": "Kamienie naturalne", "text": "Granit, marmur, piaskowiec, łupki oraz wszelkie konglomeraty." },
+      { "title": "Szkło i ceramika", "text": "Cięcie szkła umożliwiające maksymalne wykorzystanie kosztownego materiału, ceramika techniczna i dekoracyjna." },
+      { "title": "Drewno i materiały drewnopochodne", "text": "Sklejka, płyty wiórowe, MDF, OSB. Doskonałe do wycinania bardzo skomplikowanych kształtów." },
+      { "title": "Tworzywa sztuczne i inne", "text": "Teflon, poliamid, poliacetal, PET, polietylen, polipropylen, gumy, pianki i materiały reklamowe." }
+    ]
+  }
+}

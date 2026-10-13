@@ -1,0 +1,60 @@
+{
+  "homepage": {
+    "hero": {
+      "title": "Precyzyjne cięcie wodą<br />dla Twojego biznesu",
+      "subtitle": "Oferujemy innowacyjne rozwiązania w obróbce materiałów, skupiając się na precyzyjnym cięciu wodą najwyższej jakości. Nowoczesne centrum OMAX 80X z głowicą Tilt-A-Jet™.",
+      "cta": "Skontaktuj się z nami"
+    },
+    "about": {
+      "subtitle": "W JET CUTTING Adam Kołaszczyński stawiamy na jakość, innowacyjność i kompleksową obsługę naszych klientów. Poprzednio High Pres & Mach.",
+      "heading": "O nas — JET CUTTING",
+      "paragraph1": "Jesteśmy nowoczesną firmą, która z pasją realizuje projektowanie i cięcie materiałów od kilkunastu lat. Efektem wspólnych działań jest nowoczesne centrum obróbcze OMAX 80X Jet Machining Center IntelliTRAX wyposażone w głowice Tilt-A-Jet™ oraz Bevel Head, które umożliwia realizację nawet najbardziej niekonwencjonalnych projektów.",
+      "paragraph2": "Dzięki naszemu doświadczeniu zyskaliśmy zaufanie lokalnych i krajowych klientów.",
+      "cta": "Poznaj naszą technologię",
+      "imageAlt": "Centrum obróbki wodą JET CUTTING Adam Kołaszczyński"
+    },
+    "whyUs": {
+      "heading": "Dlaczego warto wybrać JET CUTTING?",
+      "subtitle": "Nowoczesne technologie, precyzja wykonania i pełne wsparcie na każdym etapie.",
+      "cards": [
+        {
+          "icon": "🔧",
+          "title": "Innowacyjność",
+          "text": "Wykorzystujemy nowoczesne technologie, aby zapewnić najwyższą jakość obróbki metalu. Nasze centrum OMAX 80X to jedna z najnowocześniejszych maszyn w Małopolsce."
+        },
+        {
+          "icon": "🎯",
+          "title": "Precyzja",
+          "text": "Nasze cięcie wodą gwarantuje doskonałe wykończenie i minimalne straty materiału. Tolerancja wykonania: 0,1 mm/1000 mm cięcia, 5 klas jakości."
+        },
+        {
+          "icon": "🤝",
+          "title": "Wsparcie",
+          "text": "Oferujemy pełne doradztwo oraz pomoc na każdym etapie realizacji projektu — od wyceny po dostawę gotowych elementów."
+        }
+      ]
+    },
+    "servicesSummary": {
+      "heading": "Nasze usługi",
+      "subtitle": "Kompleksowe cięcie wodą — od prostych detali po skomplikowane projekty 3D.",
+      "items": [
+        "Ci\u0119cie 3D — fazowanie, wycinanie sto\u017ck\u00f3w do k\u0105ta 59\u00b0",
+        "Ci\u0119cie 2D — ka\u017cdy kszta\u0142t p\u0142aski",
+        "Ci\u0119cie wzd\u0142u\u017cne, nadcinanie, wykrawanie",
+        "Wycinanie k\u00f3\u0142 z\u0119batych i wykonywanie otwor\u00f3w (od \u00d8 0,9 mm)",
+        "Grawerowanie i trasowanie napis\u00f3w w najtwardszych materia\u0142ach",
+        "St\u00f3\u0142 roboczy: 4,2 m \u00d7 2 m, do grubo\u015bci 200 mm"
+      ],
+      "cta": "Zobacz wszystkie us\u0142ugi"
+    },
+    "galleryCta": {
+      "heading": "Zobacz nasze realizacje",
+      "subtitle": "Setki zrealizowanych projektów — od rozet dekoracyjnych po skomplikowane elementy konstrukcyjne."
+    },
+    "contactCta": {
+      "heading": "Potrzebujesz wyceny?",
+      "subtitle": "Skontaktuj się z nami — wycenimy Twój projekt bezpłatnie!",
+      "cta": "Zamów wycenę"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "technologia": {
+    "introHeading": "Dlaczego cięcie wodą?",
+    "introText": "Cięcie strumieniem wody pod wysokim ciśnieniem to jedna z najnowocześniejszych i najbardziej uniwersalnych technologii obróbki materiałów. Pozwala ciąć praktycznie każdy materiał bez wprowadzania naprężeń termicznych, co gwarantuje perfekcyjną jakość krawędzi.",
+    "advantagesHeading": "Zalety cięcia wodą nowoczesnym abradżetem",
+    "advantages": [
+      "Uniwersalność materiałowa — pozwala ciąć i obrabiać każdy materiał do grubości 200 mm, w tym materiały których nie można ciąć żadną inną metodą.",
+      "Brak odkształceń termicznych — podczas obróbki stali nierdzewnej nie powstają odkształcenia cieplne. Idealne do aluminium i stali.",
+      "Precyzja — tolerancja 0,1 mm / 1000 mm cięcia. 5 klas jakości od 1 (do dalszej obróbki) do 5 (najdokładniejsza).",
+      "Oszczędność materiału — odpad ma formę bryłek a nie wiórów; można wpasować dodatkowe części w ten sam kawałek materiału.",
+      "Brak zadziorów — idealne dla aluminium, miedzi, tworzyw sztucznych i kompozytów. Doskonała jakość krawędzi.",
+      "Wszechstronność — doskonałe rozwiązanie do kamienia, szkła, drewna, gum, pianek poliuretanowych i wszelkich egzotycznych stopów (Inconel, Hastelloy, tytan)."
+    ],
+    "howWeCut": {
+      "subtitle": "Wykorzystujemy zaawansowany abradżet z głowicami Tilt-A-Jet™ i Bevel Head, umożliwiający cięcie pod kątem oraz grawerowanie.",
+      "cards": [
+        { "title": "Cięcie 2D", "text": "Każdy kształt płaski — od prostych detali po skomplikowane profile." },
+        { "title": "Cięcie 3D", "text": "Fazowanie, wycinanie stożków do kąta 59°. Jako nieliczni w Małopolsce." },
+        { "title": "Grawerowanie", "text": "Kreślenie rysunków oraz napisów nawet w najtwardszych materiałach." }
+      ]
+    }
+  }
+}
