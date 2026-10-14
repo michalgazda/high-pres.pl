@@ -1,63 +1,84 @@
-# Decap CMS — instrukcja uruchomienia (one-time, ~5 min)
+# Decap CMS — instrukcja uruchomienia (one-time)
 
-## 0. GitHub OAuth App (wykonaj sam)
+Worker OAuth dla tej strony stoi na **prywatnym koncie Cloudflare** (michalgazda.workers.dev),
+tak samo jak annamatejska.pl — NIE na koncie Fundacji Przestrzeń Dobra.
 
-1. https://github.com/settings/developers → New OAuth App
+## 0. GitHub OAuth App (jedyny krok wymagający klikania w UI)
+
+1. https://github.com/settings/developers → **New OAuth App**
 2. Application name: `highpres-decap`
-3. Homepage URL: `https://highpres-decap-oauth.przestrzendobra.workers.dev`
-4. Authorization callback URL (dokładnie):
-   `https://highpres-decap-oauth.przestrzendobra.workers.dev/callback`
+3. Homepage URL: `https://highpres-decap-oauth.michalgazda.workers.dev`
+4. Authorization callback URL (dokładnie, bez trailing slash):
+   `https://highpres-decap-oauth.michalgazda.workers.dev/callback`
 5. Create → skopiuj **Client ID** i **Client Secret**
 
-## 1. Zaloguj wrangler — już zrobione (konto przestrzendobra)
+## 1. Zaloguj wrangler na konto prywatne
+
+```bash
+cd ~/high-pres.pl/oauth-bridge
+npx wrangler login --device --browser=false
+```
+
+Otwórz podany URL, wpisz kod, zatwierdź — **na prywatnym koncie** (michalgazda.workers.dev).
+Sprawdź potem: `npx wrangler whoami`.
 
 ## 2. Deploy
 
 ```bash
-cd ~/high-pres.pl/oauth-bridge
 npx wrangler deploy
 ```
 
 Oczekiwany output:
 ```
-Published highpres-decap-oauth (1.2x sec)
-  https://highpres-decap-oauth.przestrzendobra.workers.dev
+Published highpres-decap-oauth (1.2 sec)
+  https://highpres-decap-oauth.michalgazda.workers.dev
 ```
 
-## 3. Dodaj sekrety
+Jeśli subdomena w outputcie jest inna — zaktualizuj `base_url` w `public/admin/config.yml`
+oraz callback w GitHub OAuth App (krok 0).
+
+## 3. Sekrety
 
 ```bash
 npx wrangler secret put GITHUB_CLIENT_ID      # wklej z kroku 0
 npx wrangler secret put GITHUB_CLIENT_SECRET  # wklej z kroku 0
 ```
 
-## 4. Werifikacja
+## 4. Weryfikacja workera
 
 ```bash
-curl -sI "https://highpres-decap-oauth.przestrzendobra.workers.dev/auth" | head -3
+curl -s -w "\n%{http_code} -> %{redirect_url}\n" "https://highpres-decap-oauth.michalgazda.workers.dev/auth"
 ```
 
-Oczekiwane: `HTTP/2 302` z `location: https://github.com/login/oauth/authorize?...`
+Oczekiwane: `302 -> https://github.com/login/oauth/authorize?...`
+(503 = brak sekretów; 404 na `/` jest normalne.)
 
-## 5. Push na GitHub + test
+## 5. Panel
+
+https://michalgazda.github.io/high-pres.pl/admin/ → **Login with GitHub**
+
+Zaloguj się kontem GitHub, które ma **Write** na repo `michalgazda/high-pres.pl`.
+
+## Lokalnie
 
 ```bash
 cd ~/high-pres.pl
-git add -A && git commit -m "Decap CMS + OAuth bridge" && git push
-```
-
-Po deployu GH Pages otwórz:
-https://michalgazda.github.io/high-pres.pl/admin/
-→ Login with GitHub → autoryzuj
-
-## Lokalnie (Docker)
-
-```bash
-cd ~/high-pres.pl
-# uruchom preview na :8891
 npm run preview -- --port 8891
-# lub przez Astro dev:
-npm run dev -- --port 8891
 ```
 
-Panel: http://127.0.0.1:8891/admin/ (już dodane do ALLOWED_ORIGINS)
+Panel: http://127.0.0.1:8891/admin/ (origin jest w `ALLOWED_ORIGINS` workera)
+
+## Zawartość panelu
+
+Kolekcje w `public/admin/config.yml` — wszystko z `src/data/*.json`:
+
+| Kolekcja | Plik |
+|---|---|
+| Dane firmy | `src/data/site.json` |
+| Strona główna | `src/data/homepage.json` |
+| Technologia | `src/data/technologia.json` |
+| Usługi | `src/data/uslugi.json` |
+| Wyceny | `src/data/wyceny.json` |
+| Kontakt | `src/data/kontakt.json` |
+
+Publikacja: `publish_mode: editorial_workflow` — zapis tworzy PR/draft, potem publikacja.
